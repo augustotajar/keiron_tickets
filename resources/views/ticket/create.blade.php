@@ -9,7 +9,8 @@
                     <span>Nuevo Ticket</span>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('tickets.store') }}">
+                    @if(count($users)>0)
+                        <form method="POST" action="{{ route('tickets.store') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -38,6 +39,9 @@
                                 </div>
                             </div>
                         </form>
+                    @else
+                        No tienes usuarios a quien asignar nuevos tickes.
+                    @endif
                 </div>
             </div>
         </div>
