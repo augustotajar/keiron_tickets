@@ -46,10 +46,12 @@
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
                                 @else
-                                    <form action="{{route('tickets.pedirTicket',$ticket->id)}}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success btn-sm">Pedir</button>
-                                    </form>
+                                    @if(!$ticket->ticket_pedido)
+                                        <form action="{{route('tickets.pedirTicket',$ticket->id)}}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success btn-sm">Pedir</button>
+                                        </form>
+                                    @endif
                                 @endif
                             </td>
                             </tr>
